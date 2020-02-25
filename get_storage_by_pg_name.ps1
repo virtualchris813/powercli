@@ -4,7 +4,7 @@ Connect-VIServer
 
 # Get the list of VM's on the port group. Change the port group name in the 1st line
 # This will create a file named vm_list.txt that will be used in the later steps.
-$pg = Get-View -ViewType Network -Property Name, VM -Filter @{"Name=VLAN999"}
+$pg = Get-View -ViewType Network -Property Name, VM -Filter @{Name="VLAN999"}
 Get-View -Id $pg.Vm -Property Name | Select-Object -ExpandProperty Name| Out-File -FilePath .\vm_list.txt
 
 # Process the list and spit out the results
